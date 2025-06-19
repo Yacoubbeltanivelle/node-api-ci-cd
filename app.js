@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-
+const { version } = require('./package.json');
 const port = process.env.PORT || 3000;
 
 app.get('/', (req, res) => {
@@ -10,5 +10,10 @@ app.get('/', (req, res) => {
 app.get('/status', (req, res) => {
     res.json({ status: 'API is running' });
 });
+
+app.get('/version', (req, res) => {
+    res.json({ version });
+});
+
 
 module.exports = app;
